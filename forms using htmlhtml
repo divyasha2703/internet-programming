@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+</head>
+<body>
+<table>
+<form>
+<tr>
+<td><label>"Enter your name"</label></td>
+<td><input type="text" placeholder="Name"</td>
+</tr>
+<tr>
+<td><label>"Enter your age"</label></td>
+<td><input type="number" placeholder="age"</td>
+</tr>
+<tr>
+<td><label>"Enter your DOB"</label></td>
+<td><input type="number" placeholder="date of birth"</td>
+<tr>
+<td><label>"Gender"</label></td><br>
+<td><input type="radio" name="gender" value="male">Male
+<input type="radio" name="gender" value="Female">Female </td>
+</tr>
+<tr>
+<td><label>"Email"</label></td>
+<td><input type="email" placeholder="mail id"</td>
+</tr>
+<tr>
+<td><label>"Address"</label></td><br>
+<td><textarea></textarea></td>
+</tr>
+<tr>
+<td><label>"Phone no"</label></td>
+<td><input type="number" placeholder="Phone no"</td>
+</tr>
+<tr>
+<td><label>"DEPARTMENT</label>
+<select name="BE">
+<option value="CSE">cse</option>
+<option value="ECE">ece</option>
+<option value="ADS">ads</option>
+</select>
+<br></br>
+</tr>
+<tr>
+<td>
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+</td>
+</tr>
+<tr>
+<td><input type="login" value="SUBMIT"</td>
+</tr>
+</form>
+</table>
+</body>
+</html>
