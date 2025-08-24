@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Input Validation Example</title>
+<style>
+body {
+font-family: sans-serif;
+}
+h3 {
+font-size: 1.5em; /* Increased font size for headings */
+}
+input[type="text"], input[type="number"] {
+font-size: 1.2em; /* Increased font size for input fields */
+padding: 5px;
+margin-bottom: 10px;
+width: 250px;
+}
+</style>
+</head>
+<body>
+<form onsubmit="return validateForm()">
+<h3>1. Max 12 alphanumeric characters</h3>
+<input type="text" id="input1" maxlength="12" oninput="validateAlphanumeric(this)" />
+<h3>2. Only small alphabetic letters (a-z)</h3>
+<input type="text" id="input2" oninput="validateSmallLetters(this)" />
+<h3>3. Only capital alphabetic letters (A-Z)</h3>
+<input type="text" id="input3" oninput="validateCapitalLetters(this)" />
+<h3>4. Number between 100 and 200</h3>
+<input type="number" id="input4" oninput="validateNumberRange(this)" />
+<h3>5. Only vowels (a, e, i, o, u - both cases)</h3>
+<input type="text" id="input5" oninput="validateVowels(this)" />
+<h3>6. Only 'a' and 'A'</h3>
+<input type="text" id="input6" oninput="validateOnlyA(this)" />
+<br>
+<button type="submit">Submit</button>
+</form>
+<script>
+function validateAlphanumeric(input) {
+const originalValue = input.value;
+input.value = originalValue.replace(/[^a-zA-Z0-9]/g, '');
+if( originalValue.length > 12){
+alert("Only 12 characters are allowed");
+}
+if (originalValue !== input.value) {
+alert("Only 12 characters & alphanumeric characters (a-z, A-Z, 0-9) are allowed.");
+}
+}
+function validateSmallLetters(input) {
+const originalValue = input.value;
+input.value = originalValue.replace(/[^a-z]/g, '');
+if (originalValue !== input.value) {
+alert("Only small alphabetic letters (a-z) are allowed.");
+}
+}
+function validateCapitalLetters(input) {
+const originalValue = input.value;
+input.value = originalValue.replace(/[^A-Z]/g, '');
+if (originalValue !== input.value) {
+alert("Only capital alphabetic letters (A-Z) are allowed.");
+}
+}
+function validateNumberRange(input) {
+let val = input.value;
+if (val === '') {
+return;
+}
+const originalValue = val;
+val = parseInt(val, 10);
+if (isNaN(val) || val < 100) {
+input.value = 100;
+alert("Number must be between 100 and 200. Value set to 100.");
+} else if (val > 200) {
+input.value = 200;
+alert("Number must be between 100 and 200. Value set to 200.");
+}
+}
+function validateVowels(input) {
+const originalValue = input.value;
+input.value = originalValue.replace(/[^aeiouAEIOU]/g, '');
+if (originalValue !== input.value) {
+alert("Only vowels (a, e, i, o, u) are allowed.");
+}
+}
+function validateOnlyA(input) {
+const originalValue = input.value;
+input.value = originalValue.replace(/[^aA]/g, '');
+if (originalValue !== input.value) {
+alert("Only the letter 'a' or 'A' is allowed.");
+}
+}
+</script>
+</body>
+</html>
